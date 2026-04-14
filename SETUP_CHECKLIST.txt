@@ -1,0 +1,229 @@
+═══════════════════════════════════════════════════════════════
+   TEMPO CONTRACT ANALYZER BOT - SETUP CHECKLIST
+═══════════════════════════════════════════════════════════════
+
+Your Bot Info:
+  Application ID: 2db0e8be9a281345bb841284c5c12ee6aa513d9bd9f5735a8bdb0558c19f0a0e
+  Developer Portal: https://discord.com/developers/applications/2db0e8be9a281345bb841284c5c12ee6aa513d9bd9f5735a8bdb0558c19f0a0e
+
+═══════════════════════════════════════════════════════════════
+STEP 1: GET BOT TOKEN (2 minutes)
+═══════════════════════════════════════════════════════════════
+
+[ ] 1. Open: https://discord.com/developers/applications/2db0e8be9a281345bb841284c5c12ee6aa513d9bd9f5735a8bdb0558c19f0a0e/bot
+
+[ ] 2. Click "Bot" in left sidebar
+
+[ ] 3. Scroll to "TOKEN" section
+
+[ ] 4. Click "Reset Token" (or "Copy" if you see it)
+       → You may need to confirm with 2FA
+
+[ ] 5. Copy the token (looks like: MTIzNDU2.GhKl_M.abc123...)
+       ⚠️  Keep this SECRET! Never share it!
+
+═══════════════════════════════════════════════════════════════
+STEP 2: ENABLE REQUIRED SETTINGS (1 minute)
+═══════════════════════════════════════════════════════════════
+
+[ ] 1. Still on the Bot page, scroll down to "Privileged Gateway Intents"
+
+[ ] 2. Toggle ON: "Message Content Intent" ✓
+
+[ ] 3. Click "Save Changes"
+
+═══════════════════════════════════════════════════════════════
+STEP 3: INVITE BOT TO SERVER (1 minute)
+═══════════════════════════════════════════════════════════════
+
+[ ] 1. Open: https://discord.com/developers/applications/2db0e8be9a281345bb841284c5c12ee6aa513d9bd9f5735a8bdb0558c19f0a0e/oauth2/url-generator
+
+[ ] 2. Select SCOPES:
+       [✓] bot
+       [✓] applications.commands
+
+[ ] 3. Select BOT PERMISSIONS:
+       [✓] Send Messages
+       [✓] Embed Links
+       [✓] Use Slash Commands
+
+[ ] 4. Copy the URL at the bottom of the page
+
+[ ] 5. Open the URL in your browser
+
+[ ] 6. Select your Discord server from dropdown
+
+[ ] 7. Click "Authorize"
+
+[ ] 8. Complete the captcha
+
+Your bot should now appear in your server (offline until you run it)!
+
+═══════════════════════════════════════════════════════════════
+STEP 4: INSTALL DEPENDENCIES (2 minutes)
+═══════════════════════════════════════════════════════════════
+
+[ ] 1. Open terminal/command prompt
+
+[ ] 2. Navigate to bot folder:
+       cd tempo-contract-analyzer
+
+[ ] 3. Install Python packages:
+       pip install -r requirements.txt
+
+       This installs:
+       • discord.py (Discord bot framework)
+       • web3 (Blockchain interaction)
+       • aiohttp (Async HTTP)
+       • python-dotenv (Environment variables)
+       • requests, eth-abi, eth-utils (Ethereum tools)
+
+[ ] 4. Wait for installation to complete
+
+═══════════════════════════════════════════════════════════════
+STEP 5: CONFIGURE BOT (1 minute)
+═══════════════════════════════════════════════════════════════
+
+[ ] 1. The .env file already exists (I created it for you!)
+
+[ ] 2. Edit .env file:
+       
+       Windows:  notepad .env
+       Mac:      nano .env
+       Linux:    nano .env
+
+[ ] 3. Find this line:
+       DISCORD_TOKEN=your_bot_token_here
+
+[ ] 4. Replace "your_bot_token_here" with your ACTUAL token from Step 1:
+       DISCORD_TOKEN=MTIzNDU2Nzg5.GhKl_M.your_real_token_here
+                    └─ NO SPACES around the = sign!
+
+[ ] 5. Save and close the file
+       (In nano: Ctrl+X, then Y, then Enter)
+
+═══════════════════════════════════════════════════════════════
+STEP 6: TEST SETUP (30 seconds - OPTIONAL BUT RECOMMENDED)
+═══════════════════════════════════════════════════════════════
+
+[ ] Run the test script:
+    python test_setup.py
+
+    This will check:
+    • Python version
+    • All packages installed
+    • .env file configured
+    • File structure complete
+    • Network connectivity
+
+    Fix any ❌ errors before continuing!
+
+═══════════════════════════════════════════════════════════════
+STEP 7: START THE BOT (10 seconds)
+═══════════════════════════════════════════════════════════════
+
+OPTION A - Automated Script:
+
+[ ] Windows:  Double-click run.bat
+[ ] Mac/Linux:  ./run.sh
+
+OPTION B - Manual:
+
+[ ] Run: python bot.py
+
+═══════════════════════════════════════════════════════════════
+STEP 8: VERIFY IT'S WORKING (30 seconds)
+═══════════════════════════════════════════════════════════════
+
+In your TERMINAL, you should see:
+
+[ ] INFO - Loading cogs...
+[ ] INFO - ✓ Loaded contract_analysis cog
+[ ] INFO - ✓ Synced commands globally
+[ ] INFO - ✓ Logged in as [YourBotName] (ID: 2db0e8be...)
+[ ] INFO - ✓ Connected to X guild(s)
+[ ] INFO - ✓ Bot is ready!
+
+In DISCORD:
+
+[ ] Your bot shows ONLINE (green dot next to name)
+[ ] Type / in chat and you see "/analyze-contract" in the list
+
+═══════════════════════════════════════════════════════════════
+STEP 9: TEST THE BOT (1 minute)
+═══════════════════════════════════════════════════════════════
+
+[ ] In Discord, run this command:
+    /analyze-contract 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48
+
+[ ] You should see a progress message, then a colored embed report!
+
+    Expected: Beautiful embed with:
+    • Title: "Tempo Contract Analysis: 0xA0b8...69Af"
+    • Contract type and verification status
+    • Risk summary with color (green/yellow/red)
+    • Key findings in plain English
+    • Recommendations
+
+═══════════════════════════════════════════════════════════════
+TROUBLESHOOTING
+═══════════════════════════════════════════════════════════════
+
+Problem: "DISCORD_TOKEN must be set"
+Fix:     • Check .env file exists
+         • Check token is on line "DISCORD_TOKEN=..."
+         • Make sure no spaces around =
+         • Token should be the full long string
+
+Problem: Bot shows offline
+Fix:     • Make sure python bot.py is running
+         • Check for errors in terminal
+         • Verify token is correct
+
+Problem: Slash commands don't appear
+Fix:     • Wait 1 hour (global sync takes time)
+         • OR add to .env for instant sync:
+           DISCORD_GUILD_ID=your_server_id
+           (Right-click server → Copy Server ID)
+
+Problem: "Interaction failed" when running command
+Fix:     • Re-invite bot with correct permissions
+         • Make sure "applications.commands" is selected
+         • Check bot has "Use Slash Commands" permission
+
+═══════════════════════════════════════════════════════════════
+NEXT STEPS
+═══════════════════════════════════════════════════════════════
+
+Once it's working:
+
+[ ] Test with a Tempo blockchain contract address
+[ ] Try analyzing 3-4 contracts quickly to test rate limiting
+[ ] Check the different embed colors (green/yellow/red)
+[ ] Read EXAMPLES.md to see all features
+[ ] Share your bot in your community!
+
+═══════════════════════════════════════════════════════════════
+DOCUMENTATION
+═══════════════════════════════════════════════════════════════
+
+• START_HERE.md          → Quick setup guide (what you're following)
+• DISCORD_SETUP.md       → Detailed Discord configuration
+• QUICKSTART.md          → Complete beginner guide
+• EXAMPLES.md            → Usage examples and customization
+• OUTPUT_DEMO.md         → Visual examples of all outputs
+• README.md              → Full technical documentation
+• PROJECT_STRUCTURE.md   → Code architecture
+
+═══════════════════════════════════════════════════════════════
+CONGRATULATIONS!
+═══════════════════════════════════════════════════════════════
+
+If you completed all steps, your bot is now LIVE and analyzing
+Tempo blockchain smart contracts for security risks! 🎉
+
+Questions? Check the documentation above or review the logs in
+your terminal for error messages.
+
+Happy analyzing! 🔍🛡️
+═══════════════════════════════════════════════════════════════
